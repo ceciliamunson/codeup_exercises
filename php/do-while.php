@@ -5,6 +5,8 @@ do {
 	$n = $n - 5;
 } while ($n >= -10);
 
+echo "\n";
+
 // Exercise #3: 
 
 $a = 2;
