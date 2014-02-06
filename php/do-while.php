@@ -5,6 +5,13 @@ do {
 	$n = $n - 5;
 } while ($n >= -10);
 
+// Exercise #3: 
+
+$a = 2;
+do {
+	echo "$a\n";
+	$a = $a * $a;
+} while ($a < 1000000);
 
 
 
