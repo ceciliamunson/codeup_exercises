@@ -25,3 +25,4 @@ if (($y > 0) && ($y < 10)) {
 if (($z > 0) && ($z <  10)) {
 	echo "$z is greater than 0 and less than 10\n";
 }
+?>
