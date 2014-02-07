@@ -1,6 +1,6 @@
 <?php
 
-$random_number = rand(1, 100);
+$random_number = mt_rand(1, 100);
 do {
 	fwrite(STDOUT, 'Guess number between 1 and 100 ');
 	$user_number = fgets(STDIN);
