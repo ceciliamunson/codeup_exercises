@@ -8,12 +8,17 @@ fwrite(STDOUT, "Enter ending number: ");
 $ending_number = intval(fgets(STDIN));
 //promt user to enter increment
 fwrite(STDOUT, "Enter increment: ");
-$increment = intval(fgets(STDIN));
+$increment = trim(fgets(STDIN));
+//default increment to 1 if no input
+if (!is_numeric($increment)) {
+	$increment = 1;
+}
 
-//display numbers from starting to ending in specified increment 
+//display numbers from starting to ending with user-specified increment 
 for ($i = $starting_number; $i <= $ending_number; $i += $increment) {
 	echo "{$i}\n";
 }
+
 
 
 
