@@ -2,10 +2,20 @@
 
 //prompt user for staring number
 fwrite(STDOUT, "Enter starting number: ");
-$starting_number = intval(fgets(STDIN));
+$starting_number = trim(fgets(STDIN));
+//prompt error if $starting_number not numeric
+if (!is_numeric($starting_number)) {
+	fwrite(STDERR, "Please enter a numeric value\n");
+	exit(0);
+}
 //prompt user for ending number
 fwrite(STDOUT, "Enter ending number: ");
-$ending_number = intval(fgets(STDIN));
+$ending_number = trim(fgets(STDIN));
+//prompt error if $starting_number not numeric
+if (!is_numeric($ending_number)) {
+	fwrite(STDERR, "Please enter a numeric value\n");
+	exit(0);
+} 
 //promt user to enter increment
 fwrite(STDOUT, "Enter increment: ");
 $increment = trim(fgets(STDIN));
