@@ -22,13 +22,16 @@ $books = array(
     )
 );
 
-//output book's title and then each key and its value
-foreach ($books as $key => $book) {
-	echo "$key\n";
-	foreach ($book as $key => $details) {
-		echo "$key: $details\n";
-	}
-	echo "\n";
+//output the title and then each key and its value for books written after 1950
+	foreach ($books as $key => $book) {
+		if ($book['published'] > 1950) {
+			echo "$key\n";
+			foreach ($book as $key => $details) {
+				echo "$key: $details\n";
+
+			}
+		}
+		echo "\n";
 
 }
 
