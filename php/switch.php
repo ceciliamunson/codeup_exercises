@@ -29,14 +29,12 @@ switch($day_of_week) {
         // Output Friday
     	echo "Today is Friday\n";
     	break;
-    case 6: 
-        // Output Saturday
-    	echo "Today is Saturday\n";
+    default:
+        // Output Weekend
+    	echo "Today is a weekend\n";
     	break;
-    case 7: 
-        // Output Sunday
-    	echo "Today is Sunday\n";
-    	break;
+    
+
   
 }
 
