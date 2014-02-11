@@ -31,11 +31,14 @@ function multiply($a, $b) {
 	multiply(3, 2);
 
 function divide($a, $b) {
-	if (is_numeric($a) && is_numeric($b)) {
-    	echo ($a / $b) . "\n";
+	if (!is_numeric($a) || !is_numeric($b)) {
+		echo "Please enter only numeric values\n";	
+	}
+	elseif ($b == 0) {
+		echo "Dividing by zero is not a valid operation\n";
 	}
 	else {
-		echo "Please enter only numeric values\n";
+		echo ($a / $b) . "\n";
 	}	
 }
 	divide(20, 10);
