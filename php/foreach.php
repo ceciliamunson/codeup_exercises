@@ -4,10 +4,23 @@ $things =  array('Sgt. Pepper', "11", null, array(1,2,3), 3.14, "12 + 7", false,
 //Construct a loop that iterates through each value and outputs only values that are scalar.
 
 foreach ($things as $thing) {
+//outputs every value including those inside of arrays
+	
+	if  (is_array($thing)) {
+		foreach ($thing as $array) {
+			echo "$array\n";
+		}
+	}
+	else { 
+		echo "$thing\n";
+	}
 
+
+	
+	
 	//checks if it's scalar and output only scalar values
-	if (is_scalar($thing)) {
-		echo "$thing\n"; }
+	//if (is_scalar($thing)) {
+		//echo "$thing\n"; }
 
 		//check if it's an integer
 		//if (is_int($thing)) {
