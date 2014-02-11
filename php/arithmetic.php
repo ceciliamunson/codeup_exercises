@@ -1,34 +1,58 @@
 <?php
-
+		
 function add($a, $b) {
-	
-    echo (5 + 4);
+	if (is_numeric($a) && is_numeric($b)) {
+    	echo ($a + $b) . "\n";
+    }
+    else {
+		echo "Please enter only numeric values\n";
+	}	
 }
-echo add(5, 4) . "\n";
+add(1, 4);
 
 function subtract($a, $b) {
-	
-    echo $a - $b;
+	if (is_numeric($a) && is_numeric($b)) {
+    	echo ($a - $b) . "\n";
+	}
+	else {
+		echo "Please enter only numeric values\n";
+	}	
 }
-echo subtract(20, 5) . "\n";
+	subtract(20, 5);
 
 function multiply($a, $b) {
-	
-    echo $a * $b;
+	if (is_numeric($a) && is_numeric($b)) {
+    	echo ($a * $b) . "\n";
+	}
+	else {
+		echo "Please enter only numeric values\n";
+	}	
 }
-echo multiply(3, 2) . "\n";
+	multiply(3, 2);
 
 function divide($a, $b) {
-
-    echo $a / $b;
+	if (is_numeric($a) && is_numeric($b)) {
+    	echo ($a / $b) . "\n";
+	}
+	else {
+		echo "Please enter only numeric values\n";
+	}	
 }
-echo divide(20, 10) . "\n";
+	divide(20, 10);
 
-//add function that finds the modulus of 2 numbers
+	//add function that finds the modulus of 2 numbers
 function modulus($a, $b) {
-
-	echo $a % $b;
+	if (is_numeric($a) && is_numeric($b)) {
+		echo ($a % $b) . "\n";
+	}
+	else {
+		echo "Please enter only numeric values\n";
+	}	
 }
-echo modulus(15, 5) . "\n";
+	modulus(a, 5);
+	
+
+
+
 
 ?>
