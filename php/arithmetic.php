@@ -1,27 +1,27 @@
 <?php
 
 function add($a, $b) {
-	$a = 30;
-	$b = 10;
-    echo $a + $b;
+	
+    echo (5 + 4);
 }
+add(5, 4);
 
 function subtract($a, $b) {
-	$a = 20;
-	$b = 5;
+	
     echo $a - $b;
 }
+subtract(20, 5);
 
-function multiply($a, $b) 
-	$a = 3;
-	$b = 2;
+function multiply($a, $b) {
+	
     echo $a * $b;
 }
+multiply(3, 2);
 
 function divide($a, $b) {
-	$a = 45;
-	$b = 9;
+
     echo $a / $b;
 }
+divide(20, 10)
 
 ?>
