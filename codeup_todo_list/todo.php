@@ -3,39 +3,65 @@
 // Create array to hold list of todo items
 $items = array();
 
-// The loop!
-do {
-    // Iterate through list items
+// List array items formatted for CLI
+function list_items($items) {
+
+    $listItem = "";
     foreach ($items as $key => $item) {
-        // Display each item and a newline
-        $key++;
-        echo "[{$key}] {$item}\n";
+            $newIndex = $key + 1; 
+            $listItem .= "$newIndex" . " " . "TODO" . " " . "$item" . PHP_EOL;
     }
-
-    // Show the menu options
-    echo '(N)ew item, (R)emove item, (Q)uit : ';
-
-    // Get the input from user
-    // Use trim() to remove whitespace and newlines
+    return  $listItem;
+    
+}  
+// Get STDIN, strip whitespace and newlines, 
+// and convert to uppercase if $upper is true
+function get_input($upper = FALSE) {
+    // Return filtered STDIN input
     $input = trim(fgets(STDIN));
+    if ($upper) {
+        $input = strtoupper($input);
+    }
+    return $input;
+}
 
-    // Check for actionable input
-    if ($input == 'N' || $input == 'n') {
+// The loop!
+do {    
+    echo list_items($items);
+    // Show the menu options
+    echo '(N)ew item, (R)emove item, (S)ort items, (Q)uit : ';
+    $input = get_input(TRUE);
         // Ask for entry
+    if ($input == 'N') {
+
         echo 'Enter item: ';
         // Add entry to list array
-        $items[] = trim(fgets(STDIN));
-    } elseif ($input == 'R' || $input == 'r') {
+        $items[] = get_input();
+        
         // Remove which item?
+    } 
+    elseif ($input == 'R') {
         echo 'Enter item number to remove: ';
         // Get array key
-        $key = trim(fgets(STDIN));
+        $key = get_input();
         // Remove from array
-        $key--;
-        unset($items[$key]);
+        $newIndex = $key - 1;
+        unset($items[$newIndex]);
     }
+    elseif ($input == 'S') {
+        echo "For A-Z sorting enter A and for Z-A sorting enter Z: ";
+        $input = get_input(TRUE);
+        if ($input == 'A') {
+            asort($items);
+        }
+        else {
+            arsort($items);
+        }
+    }
+}
+
 // Exit when input is (Q)uit
-} while ($input != 'Q' && $input != 'q');
+while ($input != 'Q');
 
 // Say Goodbye!
 echo "Goodbye!\n";
