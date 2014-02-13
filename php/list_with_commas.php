@@ -2,6 +2,7 @@
 
 $physicists_string = 'Gordon Freeman, Samantha Carter, Sheldon Cooper, Quinn Mallory, Bruce Banner, Tony Stark';
 $physicists_array = explode(', ', $physicists_string);
+
 //Create the $famous_fake_physicists string that lists the physicists and contains the "and" at the end.
 // array_pop($physicists_array);
 // array_push($physicists_array, 'and Tony Stark');
@@ -12,20 +13,23 @@ $physicists_array = explode(', ', $physicists_string);
 //$physicists_array as the only argument, and your function will return the result.
 //// Converts array into list n1, n2, ..., and n3
 //Update your code to list the physicists by first name, in alphabetical order.
-function humanized_list($string) {
+function humanized_list($string, $sort = FALSE) {
+	$new_string = '';
 	$array = explode(', ', $string);
-	asort($array);
+	if ($sort) {
+		asort($array);
+	}
   	$last_item = array_pop($array);
 	array_push($array, "and $last_item");
-	$new_string = implode(', ', $array);
+	$new_string .= implode(', ', $array);
 	return $new_string;
 }
-$famous_fake_physicists = $new_string;
+
 // Humanize that list
-$famous_fake_physicists = humanized_list($physicists_string);
+$new_string = humanized_list($physicists_string, FALSE);
 
 // Output sentence
-echo "Some of the most famous fictional theoretical physicists are {$famous_fake_physicists}.\n"
+echo "Some of the most famous fictional theoretical physicists are {$new_string}.\n"
 
 
 
