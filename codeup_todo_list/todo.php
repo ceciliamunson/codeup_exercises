@@ -2,6 +2,7 @@
 
 // Create array to hold list of todo items
 $items = array();
+$name_file = 'data/todo_list.txt';
 
 // List array items formatted for CLI
 function list_items($items) {
@@ -23,6 +24,15 @@ function get_input($upper = FALSE) {
         $input = strtoupper($input);
     }
     return $input;
+}
+//Create a function that reads the file, and adds each line to the current TODO list. 
+//Loading data/todo_list.txt should properly load the list from above. Be sure to fclose() 
+//the file when you are done reading it.
+function add_to_list($filename) {
+                $handle = fopen($filename, "r");
+                $contents = fread($handle, filesize($filename));
+                fclose($handle);    
+                return  explode("\n", $contents);
 }
 
 // The loop!
@@ -70,19 +80,15 @@ do {
         }
     }
     //add File menu
+    
+
     elseif ($input == 'F') {
         echo '(O)pen file option ';
         $open = get_input(TRUE);
         if ($open == 'O') {
-            $filename = 'todo_list.txt';
-            $handle = fopen($filename, "r");
-            $contents = fread($handle, filesize($filename));
-            echo $contents;
-            fclose($handle);
+            $items = add_to_list($name_file);
         }
-        else {
-            break;
-        }
+        
     }
     //remove first item from list
     elseif ($input == 'M') {
