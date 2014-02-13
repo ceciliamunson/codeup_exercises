@@ -69,9 +69,12 @@ do {
             arsort($items);
         }
     }
-    //elseif ($input == 'F') {
-        //array_shift($items);
-    //}
+    elseif ($input == 'F') {
+        array_shift($items);
+    }
+    elseif ($input == 'L') {
+        array_pop($items);
+    }
 }
 
 // Exit when input is (Q)uit
