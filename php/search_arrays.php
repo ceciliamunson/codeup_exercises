@@ -28,24 +28,15 @@ else {
 
 function compare_arrays($array1, $array2) {
 	$numberInCommon = 0;
-
-	//$index = 0;	 	
-	//do {
-		//$array2_name = $array2[$index];
-		//$result = array_search($array2_name, $array2);
 	foreach ($array1 as $array1_name) {
-	//for ($i = $starting_number; $i <= $ending_number; $i += $increment) {
-	//echo "{$i}\n";
-	//}		
+		
 			$result = array_search($array1_name, $array2);
 			if (is_numeric($result)) {
 				$numberInCommon ++;
 			}
-			//$index += 1;
-		//} while ($index = (count($array2) - 1);
 	}
 	return $numberInCommon;	
 }
-echo compare_arrays($names, $compare);
+echo compare_arrays($names, $compare) . PHP_EOL;
 
 ?>
