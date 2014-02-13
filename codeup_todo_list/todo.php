@@ -33,7 +33,7 @@ do {
     //on the list. This feature will not be added to the menu, and will 
     //be a special feature that is only available to "power users". 
     //Also add a L option that grabs and removes the last item in the list.
-    echo '(N)ew item, (R)emove item, (S)ort items, (Q)uit : ';
+    echo '(N)ew item, (R)emove item, (S)ort items, (F)ile menu, (Q)uit : ';
     $input = get_input(TRUE);
         // Ask for entry
     if ($input == 'N') {
@@ -69,8 +69,23 @@ do {
             arsort($items);
         }
     }
-    //remove first item from list
+    //add File menu
     elseif ($input == 'F') {
+        echo '(O)pen file option ';
+        $open = get_input(TRUE);
+        if ($open == 'O') {
+            $filename = 'todo_list.txt';
+            $handle = fopen($filename, "r");
+            $contents = fread($handle, filesize($filename));
+            echo $contents;
+            fclose($handle);
+        }
+        else {
+            break;
+        }
+    }
+    //remove first item from list
+    elseif ($input == 'M') {
         array_shift($items);
     }
     //remove last item from list
