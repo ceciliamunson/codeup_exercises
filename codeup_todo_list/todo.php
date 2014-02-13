@@ -69,9 +69,11 @@ do {
             arsort($items);
         }
     }
+    //remove first item from list
     elseif ($input == 'F') {
         array_shift($items);
     }
+    //remove last item from list
     elseif ($input == 'L') {
         array_pop($items);
     }
