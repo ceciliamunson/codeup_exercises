@@ -29,14 +29,25 @@ function get_input($upper = FALSE) {
 do {    
     echo list_items($items);
     // Show the menu options
+    //Allow a user to enter F at the main menu to remove the first item 
+    //on the list. This feature will not be added to the menu, and will 
+    //be a special feature that is only available to "power users". 
+    //Also add a L option that grabs and removes the last item in the list.
     echo '(N)ew item, (R)emove item, (S)ort items, (Q)uit : ';
     $input = get_input(TRUE);
         // Ask for entry
     if ($input == 'N') {
-
+        //ask the user if they want to add it to the beginning or end 
+        //of the list. Default to end if no input is given.
+        echo 'Add item to (B)eginning or (E)nd of the list? ';
+        $input = get_input(TRUE);
         echo 'Enter item: ';
-        // Add entry to list array
-        $items[] = get_input();
+        if ($input == 'B') {
+            array_unshift($items, get_input());
+        }
+        else {
+            array_push($items, get_input());
+        }       
         
         // Remove which item?
     } 
@@ -58,6 +69,9 @@ do {
             arsort($items);
         }
     }
+    //elseif ($input == 'F') {
+        //array_shift($items);
+    //}
 }
 
 // Exit when input is (Q)uit
