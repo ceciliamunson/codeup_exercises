@@ -14,15 +14,14 @@ $physicists_array = explode(', ', $physicists_string);
 //// Converts array into list n1, n2, ..., and n3
 //Update your code to list the physicists by first name, in alphabetical order.
 function humanized_list($string, $sort = FALSE) {
-	$new_string = '';
+	
 	$array = explode(', ', $string);
 	if ($sort) {
 		asort($array);
 	}
   	$last_item = array_pop($array);
 	array_push($array, "and $last_item");
-	$new_string .= implode(', ', $array);
-	return $new_string;
+	return implode(', ', $array); 
 }
 
 // Humanize that list
