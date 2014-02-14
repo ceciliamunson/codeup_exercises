@@ -29,9 +29,10 @@ function get_input($upper = FALSE) {
 //Loading data/todo_list.txt should properly load the list from above. Be sure to fclose() 
 //the file when you are done reading it.
 function add_to_list($filename) {
+        echo $filename;
                 $handle = fopen($filename, "r");
                 $contents = fread($handle, filesize($filename));
-                fclose($handle);    
+                fclose($filename);    
                 return  explode("\n", $contents);
 }
 
@@ -92,7 +93,26 @@ do {
             //$new_items = add_to_list($filename);
             //array_push($items, $new_items);
         }
-        
+    }
+    //When (S)ave is chosen, the user should be able to enter the path to a file to have 
+    //it save. Use fwrite() with the mode that starts at the beginning of a file and removes 
+    //all the file contents, or creates a new one if it does not exist. After save, alert the 
+    //user the save was successful and redisplay the list and main menu.
+    elseif ($input == 'S') {
+        echo 'Enter file to be saved: ';
+        $filename = get_input();
+        if (file_exists ($filename)) {
+            echo 'File already exists. Do you want to overwrite it (Y/ N) ';
+            $overwrite = get_input(TRUE);
+            if ($overwrite == 'Y') {
+                $handle = fopen($filename, 'w');        
+                foreach ($items as $item) {
+                fwrite($handle, PHP_EOL . $item);
+                }
+                fclose($handle);
+                echo 'File was saved succesfully!' . PHP_EOL;
+            }
+        }
     }
     //remove first item from list
     elseif ($input == 'M') {
