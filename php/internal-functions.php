@@ -4,7 +4,7 @@ $nothing = NULL;
 $something = '';
 $array = array(1,2,3);
 
-// Create a funciton that checks if a variable is set or empty, and display "$variable_name is SET|EMPTY"
+// Create a function that checks if a variable is set or empty, and display "$variable_name is SET|EMPTY"
 function set_or_empty($var) {
 	if (isset($var)) {
 		return TRUE; 
@@ -26,6 +26,11 @@ if (set_or_empty($nothing) == FALSE) {
 if (set_or_empty($something)) {
 	echo "\$something is SET\n";
 }
+//Update the 'is set' check on $something to see if it is 'empty'
+if (set_or_empty($something)) {
+	echo "\$something is EMPTY\n";
+}
+
 // Serialize the array $array, and output the results
 
 $serial = serialize($array);
