@@ -25,10 +25,10 @@ function humanized_list($string, $sort = FALSE) {
 }
 
 // Humanize that list
-$new_string = humanized_list($physicists_string, FALSE);
+$famous_fake_physicists = humanized_list($physicists_string, FALSE);
 
 // Output sentence
-echo "Some of the most famous fictional theoretical physicists are {$new_string}.\n"
+echo "Some of the most famous fictional theoretical physicists are {$famous_fake_physicists}.\n"
 
 
 
