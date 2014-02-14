@@ -14,7 +14,7 @@ function not_numeric($a, $b) {
 //error function if divinding by zero
 function not_div_by_zero($a, $b) {
 	if ($b == 0) {
-		echo "Dividing by zero is not a valid operation\n";
+		echo "FALSE";
 		return FALSE;
 	}
 	else return TRUE;
