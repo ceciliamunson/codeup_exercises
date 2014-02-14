@@ -2,7 +2,7 @@
 
 // Create array to hold list of todo items
 $items = array();
-$name_file = 'data/todo_list.txt';
+
 
 // List array items formatted for CLI
 function list_items($items) {
@@ -86,7 +86,9 @@ do {
         echo '(O)pen file option ';
         $open = get_input(TRUE);
         if ($open == 'O') {
-            $items = add_to_list($name_file);
+            echo 'Enter file name: ';
+            $filename = get_input();
+            $items = add_to_list($filename);
         }
         
     }
