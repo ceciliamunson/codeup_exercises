@@ -43,7 +43,7 @@ do {
     //on the list. This feature will not be added to the menu, and will 
     //be a special feature that is only available to "power users". 
     //Also add a L option that grabs and removes the last item in the list.
-    echo '(N)ew item, (R)emove item, (S)ort items, (F)ile menu, (Q)uit : ';
+    echo '(N)ew item, (R)emove item, (Z)Sort items, (F)ile menu, (S)ave, (Q)uit : ';
     $input = get_input(TRUE);
         // Ask for entry
     if ($input == 'N') {
@@ -69,7 +69,7 @@ do {
         $newIndex = $key - 1;
         unset($items[$newIndex]);
     }
-    elseif ($input == 'S') {
+    elseif ($input == 'Z') {
         echo "For A-Z sorting enter A and for Z-A sorting enter Z: ";
         $input = get_input(TRUE);
         if ($input == 'A') {
@@ -89,6 +89,8 @@ do {
             echo 'Enter file name: ';
             $filename = get_input();
             $items = add_to_list($filename);
+            //$new_items = add_to_list($filename);
+            //array_push($items, $new_items);
         }
         
     }
