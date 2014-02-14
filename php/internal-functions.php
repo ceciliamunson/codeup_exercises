@@ -12,6 +12,8 @@ function set_or_empty($var) {
 	elseif (empty($var)) {
 		return FALSE;
 	}
+
+unset($nothing);
 		
 }
 // TEST: If var $nothing is set, display '$nothing is SET'
