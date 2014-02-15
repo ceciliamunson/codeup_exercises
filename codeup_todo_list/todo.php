@@ -32,7 +32,7 @@ function add_to_list($filename) {
         echo $filename;
                 $handle = fopen($filename, "r");
                 $contents = fread($handle, filesize($filename));
-                fclose($filename);    
+                fclose($handle);    
                 return  explode("\n", $contents);
 }
 
@@ -84,14 +84,14 @@ do {
     
 
     elseif ($input == 'F') {
-        echo '(O)pen file option ';
+        echo '(O)pen file ';
         $open = get_input(TRUE);
         if ($open == 'O') {
             echo 'Enter file name: ';
-            $filename = get_input();
-            $items = add_to_list($filename);
-            //$new_items = add_to_list($filename);
-            //array_push($items, $new_items);
+            $new_items = add_to_list(get_input());
+            foreach ($new_items as $new_item) {
+                array_push($items, $new_item);
+            }
         }
     }
     //When (S)ave is chosen, the user should be able to enter the path to a file to have 
@@ -107,7 +107,7 @@ do {
             if ($overwrite == 'Y') {
                 $handle = fopen($filename, 'w');        
                 foreach ($items as $item) {
-                fwrite($handle, PHP_EOL . $item);
+                    fwrite($handle, PHP_EOL . $item);
                 }
                 fclose($handle);
                 echo 'File was saved succesfully!' . PHP_EOL;
